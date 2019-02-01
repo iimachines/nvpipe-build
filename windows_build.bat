@@ -77,7 +77,7 @@ echo ************************** FAILURE :( **************************
 goto :exit
 
 :exit
-cd /d %cloneDir%
+cd /d "%CURDIR%"
 pause
 color
 

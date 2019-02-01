@@ -161,7 +161,7 @@ NVPIPE_EXPORT uint64_t NvPipe_EncodePBO(NvPipe* nvp, uint32_t pbo, uint8_t* dst,
   * @param forceIFrame Enforces an I-frame instead of a P-frame.
  * @return Size of encoded data in bytes or 0 on error.
  */
-NVPIPE_EXPORT uint64_t NvPipe_EncodeTextureD3D11(NvPipe* nvp, const void* texture, uint8_t* dst, uint64_t dstSize, bool forceIFrame);
+NVPIPE_EXPORT uint64_t NvPipe_EncodeTextureD3D11(NvPipe* nvp, class ID3D11Texture2D* texture, uint8_t* dst, uint64_t dstSize, bool forceIFrame);
 
 #endif
 
