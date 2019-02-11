@@ -24,7 +24,7 @@ cmake -G "Visual Studio 15 2017 Win64" ^
     -DNVPIPE_WITH_OPENGL=1 ^
     -DNVPIPE_WITH_D3D11=1 ^
     -DNVPIPE_BUILD_EXAMPLES=0 ^
-    -DNVPIPE_STATIC_LIB=1 ^
+    -DNVPIPE_STATIC_LIB=0 ^
     -DNVPIPE_MSVC_STATIC_CRT=1 ^
     -DNVPIPE_MSVC_NO_ITERATOR_DEBUGGING=1 ^
     -DCMAKE_INSTALL_PREFIX="%OUTDIR%"
@@ -49,6 +49,9 @@ if errorlevel 1 goto error
 xcopy /i /y "%OUTDIR%\lib\*.lib" "%CURDIR%\lib\windows_debug_x64\"
 if errorlevel 1 goto error
 
+xcopy /i /y "%OUTDIR%\bin\*.dll" "%CURDIR%\bin\windows_debug_x64\"
+if errorlevel 1 goto error
+
 echo ----------------------------------------------------------------
 echo Building release...
 
@@ -62,6 +65,9 @@ msbuild /p:configuration="Release" /p:platform="x64" "%OUTDIR%\INSTALL.vcxproj"
 if errorlevel 1 goto error
 
 xcopy /i /y "%OUTDIR%\lib\*.lib" "%CURDIR%\lib\windows_release_x64\"
+if errorlevel 1 goto error
+
+xcopy /i /y "%OUTDIR%\bin\*.dll" "%CURDIR%\bin\windows_release_x64\"
 if errorlevel 1 goto error
 
 goto done

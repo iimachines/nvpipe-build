@@ -1,3 +1,6 @@
 [submodule "NvPipe"]
 	path = NvPipe
 	url = https://github.com/WonderMediaProductions/NvPipe
+	branch = master
+
+	
